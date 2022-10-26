@@ -12,7 +12,7 @@ $ brew install hashicorp/tap/nomad
 [See other options](https://learn.hashicorp.com/tutorials/nomad/get-started-install?in=nomad/get-started)
 
 # Install Vagrant
-[[Vagrant]] is a tool for building and managing virtual machines.
+[[vagrant|Vagrant]] is a tool for building and managing virtual machines.
 
 Install using homebrew:
 ```bash
@@ -23,7 +23,7 @@ $ brew install vagrant
 [See other options](https://www.vagrantup.com/downloads)
 
 ## Configure Vagrant
-[[Vagrant]] uses a [[Vagrantfile]] for its configuration. In here you will tell Vagrant what provider and settings to use. 
+[[vagrant|Vagrant]] uses a [[Vagrantfile]] for its configuration. In here you will tell Vagrant what provider and settings to use. 
 
 To quickly setup a new file:
 ```bash
@@ -122,6 +122,24 @@ This will start the agent in both client and server mode. Wait until you see the
 ```bash
 nomad: cluster leadership acquired
 ```
+
+## Bridge error workaround
+When starting the dev agent, nomad warns that the _bridge_ module cannot be found:
+```bash
+error=
+  | 3 errors occurred:
+  | \t* module bridge not in /proc/modules
+  | \t* failed to open /lib/modules/5.10.104-linuxkit/modules.builtin: open /lib/modules/5.10.104-linuxkit/modules.builtin: no such file or directory
+  | \t* failed to open /lib/modules/5.10.104-linuxkit/modules.dep: open /lib/modules/5.10.104-linuxkit/modules.dep: no such file or directory
+  |
+```
+
+A workaround for this is to write the following file:
+```bash
+$ sudo mkdir -p /lib/modules/$(uname -r)/
+$ echo '_/bridge.ko' | sudo tee -a /lib/modules/$(uname -r)/modules.builtin
+```
+
 
 # Continue the official startup guide
 Follow the remaining steps on [this](https://learn.hashicorp.com/tutorials/nomad/get-started-run?in=nomad/get-started) guide.

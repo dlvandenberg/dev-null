@@ -23,7 +23,7 @@ task "server" {
 `job -> group -> **task**`
 
 
-## Possible parameters
+## `task` Parameters
 Below are a few possible parameters to add to the stanza. For a complete list view the [official docs](https://developer.hashicorp.com/nomad/docs/job-specification/task).
 
 | parameter   | type                 | description                                                                                                                                                                                                      | default | required |

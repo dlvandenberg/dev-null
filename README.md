@@ -1,2 +1,2 @@
 # dev-null
-Notes in Markdown format
+Technical notes in Markdown format. Used in an [Obsidian Vault](https://obsidian.md).

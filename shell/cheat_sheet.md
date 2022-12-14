@@ -1,6 +1,6 @@
 
 # Shell check
-Find bugs is shell scripts using [this site](https://www.shellcheck.net) or via command line:
+Find bugs in shell scripts using [this site](https://www.shellcheck.net) or via command line:
 
 ## Homebrew
 Install via homebrew: 
@@ -12,3 +12,6 @@ Then run using `shellcheck`:
 ```bash
 $ shellcheck <shell_script>
 ```
+
+# Explain shell
+Explain shell commands and their flags / arguments, use [explain shell](https://explainshell.com).
